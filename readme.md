@@ -14,9 +14,9 @@ Para poder acceder al uso de estas máquinas (que hemos llamado cluster UAM-BIO)
 
 > Para acceder a las máquinas del cluster UAM-BIO debéis indicar en el campo 4 del formulario _"uso de las máquinas de Daniel Aguirre"_.  De este modo, además de las colas propias del CCC, tendréis acceso a nuestras colas (bio y biobis).
 
-2. **Daros de alta en la lista cluster-uambio-l@uam.es [aquí](https://listas-correo.uam.es/sympa/subscribe/cluster-uambio-l?previous_action=info). <!--**NO FUNCIONA LA LISTA** Crearla de nuevo-->**
+2. **Daros de alta en la lista cluster-uambio [aquí](https://listas-correo.uam.es/sympa/subscribe/cluster-uambio-l?previous_action=info). <!--**NO FUNCIONA LA LISTA** Crearla de nuevo-->**
 
-Para cualquier duda podéis hacer uso de la lista de correo ([cluster-uambio-l@uam.es](cluster-uambio-l@uam.es)) o escribiendo al responsable técnico del cluster UAM-BIO ([alberto.rastrojo@uam.es](mailto:alberto.rastrojo@uam.es)).
+Para cualquier duda podéis hacer uso de la lista de correo ([cluster-uambio-l@uam.es](mailto:cluster-uambio-l@uam.es)) o escribiendo al responsable técnico del cluster UAM-BIO ([alberto.rastrojo@uam.es](mailto:alberto.rastrojo@uam.es)).
 
 ***
 # Funcionamiento del cluster (CCC y UAM-BIO)
@@ -108,17 +108,18 @@ Para ver los módulos disponibles ejecutar **"_module avail_"**:
 | abyss/2.0.2   | dftbp/19.1          | lumerical/2020R2 | phyluce/1.7.1      |
 | ..            | ..                  | ..               | ..    |
 
-Para cargar módulos: **_module load NOMBRE_**
-Para descargarlos: **_module unload NOMBRE_**
-Para ver los módulos cargadas: **_module list_**
+Para cargar módulos: **_module load NOMBRE_**  
+Para descargarlos: **_module unload NOMBRE_**  
+Para ver los módulos cargadas: **_module list_**  
 
 - **_Otros programas_**
 
-La manera más sencilla de instalar otros programas que necesiteis (o versiones diferentes de las instaladas) es escribir a [administrador.ccc@uam.es](administrador.ccc@uam.es) con vuestra petición. No esperéis que sean rápidos. Generalmente tardan una semana es procesar vuestra solicitud. 
+La manera más sencilla de instalar otros programas que necesiteis (o versiones diferentes de las instaladas) es escribir a [administrador.ccc@uam.es](mailto:administrador.ccc@uam.es) con vuestra petición. No esperéis que sean rápidos. Generalmente tardan una semana es procesar vuestra solicitud. 
 
 Otra forma sería que os los instaléis vosotros/as mismos/as si tenéis los conocimientos necesarios. Los programas se deben instalar en la carpeta _home_ o en _proyectos_. No siempre es posible la instalación por que requieren permisos de administrador que no tenemos como usuarios. 
 
-- **_Bases de datos_**: además de los programas ya instalados también disponemos de algunas bases de datos ya descargadas en **_/usr/local/BBDD/_**, aunque no se actualizan de manera automática, hay que solicitarlo escribiendo a [administrador.ccc@uam.es](administrador.ccc@uam.es) . 
+- **_Bases de datos_**: además de los programas ya instalados también disponemos de algunas bases de datos ya descargadas en **_/usr/local/BBDD/_**, aunque no se actualizan de manera automática, hay que solicitarlo escribiendo a [administrador.ccc@uam.es](mailto:administrador.ccc@uam.es) . 
 
 ## Ejecución de trabajos
+
 
