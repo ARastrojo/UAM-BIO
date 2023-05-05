@@ -56,10 +56,10 @@ En la solicitud de proyecto al CCC debéis indicar vuestras necesidades de espac
 
 Directorios y usos:
 
-- _home_: es la carpeta raíz de cada usuario. En ella podemos almacenar scripts y pequeños documentos ya que sólo disponemos de 100 Mb. Esta carpeta es accesible por el usuario desde todas las máquinas de cómputo. 
-- _proyecto_: en esta carpeta se deben almacenar los datos de manera semi-permanente (siempre que os quede espacio). Esta carpeta está sometida diariamente a copias de seguridad por lo que los datos aquí almacenados están muy seguros. Esta carpeta es accesible por el usuario desde todas las máquinas de cómputo. 
-- _temporal_: este espacio es propio de cada máquina de cómputo y sólo es accesible desde esa máquina. El espacio disponible depende de cada cola. En las colas _bio_ y _biobis_ disponemos de ~900 Gb de espacio. En este espacio podemos copiar los datos necesarios para ejecutar nuestros trabajos, pero debe quedar vacío al terminar. Es posible que no se disponga de todo el espacio de almacenamiento si no tenéis reservada la máquina completa y trabajo de otro usuario coincide en la misma máquina que el vuestro. 
-- _scratch_: se trata de un directorio que podemos usar de manera esporádica para almacenar datos muy grandes que no nos quepan en nuestra carpeta proyecto. No está pensado para la conservación de nuestros datos, sino para situaciones excepcionales. 
+- **_home_**: es la carpeta raíz de cada usuario. En ella podemos almacenar scripts y pequeños documentos ya que sólo disponemos de 100 Mb. Esta carpeta es accesible por el usuario desde todas las máquinas de cómputo. 
+- **_proyecto_**: en esta carpeta se deben almacenar los datos de manera semi-permanente (siempre que os quede espacio). Esta carpeta está sometida diariamente a copias de seguridad por lo que los datos aquí almacenados están muy seguros. Esta carpeta es accesible por el usuario desde todas las máquinas de cómputo. 
+- **_temporal_**: este espacio es propio de cada máquina de cómputo y sólo es accesible desde esa máquina. El espacio disponible depende de cada cola. En las colas _bio_ y _biobis_ disponemos de ~900 Gb de espacio. En este espacio podemos copiar los datos necesarios para ejecutar nuestros trabajos, pero debe quedar vacío al terminar. Es posible que no se disponga de todo el espacio de almacenamiento si no tenéis reservada la máquina completa y trabajo de otro usuario coincide en la misma máquina que el vuestro. 
+- **_scratch_**: se trata de un directorio que podemos usar de manera esporádica para almacenar datos muy grandes que no nos quepan en nuestra carpeta proyecto. No está pensado para la conservación de nuestros datos, sino para situaciones excepcionales. 
 
 
 **Tabla resumen espacios disco**
@@ -71,9 +71,54 @@ Directorios y usos:
 | Scratch  | /scratch/usuario/         | RED   | Almacenamiento de datos temporales |
 | Temporal | /temporal/usuario/        | LOCAL | Almacenamiento de datos temporales (se debe borrar tras la ejecución de cada trabajo) |
 
-usuario: el nombre de cada usuario
-XXXXX: el nombre del proyecto que habéis solicitado
+_usuario_: el nombre de cada usuario  
+_XXXXX_: el nombre del proyecto que habéis solicitado  
 
-Las carpetas que ponen “red” están conectadas por red a todas las máquinas, es decir, esos “discos” no están conectados a la máquina en la que se trabaja, sino en otras máquinas de almacenamiento que son accesibles mediante red a todo el clúster. En estas carpetas se pueden almacenar datos, pero no deben usarse estos datos para los cálculos ya que estaríamos provocando mucho tráfico en la red, lo que provoca que todo el cluster se ralentice, y muy probablemente los administradores del cluster maten tu trabajo. Por lo tanto, para hacer uso de los datos que tenemos almacenados en las carpetas en red (_proyectos_ o _scratch_) debemos copiarlos a la carpeta _temporal_. Muy excepcionalmente, si los datos no caben en _temporal_ podemos hacer uso de _scratch_ 
+Las carpetas que ponen “red” están conectadas por red a todas las máquinas, es decir, esos “discos” no están conectados a la máquina en la que se trabaja, sino en otras máquinas de almacenamiento que son accesibles mediante red a todo el clúster. En estas carpetas se pueden almacenar datos, pero no deben usarse estos datos para los cálculos ya que estaríamos provocando mucho tráfico en la red, lo que provoca que todo el cluster se ralentice, y muy probablemente los administradores del cluster maten tu trabajo. Por lo tanto, para hacer uso de los datos que tenemos almacenados en las carpetas en red (_proyectos_ o _scratch_) debemos copiarlos a la carpeta _temporal_. Muy excepcionalmente, si los datos no caben en _temporal_ podemos hacer uso de _scratch_. 
+
+**Estructura del clúster**  
 
 ![estructura_cluster](https://github.com/ARastrojo/UAM-BIO/blob/57a6667e3d8e6800c7ed3b47210683acea1ec396/images/cluster.png)
+
+
+## Instalación de programas
+
+**Software disponible**
+
+- **_/usr/local/bioinfo/_**: en esta ruta podemos encontrar bastantes programas ya instalados.
+
+| | | |
+|------------|--------------|------------|
+| annotsv    | git          | rvtests    |
+| annovar    | glpk         | salmon     |
+| automap    | gnuplot      | samtools   |
+| bcftools   | gradle       | sbml       |
+| bcl2fastq2 | hisat2       | seekdeep   |
+| bedtools   | IGV          | spades     |
+| .. | .. | .. |
+
+- **[Modules](https://www.tacc.utexas.edu/research/tacc-research/lmod/)**: los modulos son un sistema de entornos virtuales que permiten que los administradores del clúster puedan instalar diferentes programas con sus dependencias (que a veces entran en conflictos con otros programas). 
+
+Para ver los módulos disponibles ejecutar **"_module avail_"**:
+| abinit/8.0.8b | deMon2k/5.0_intel   | lammps/2022      | petsc/3.11.2       |
+|---------------|---------------------|------------------|--------------------|
+| abinit/8.10.3 | deMonNano/deMonNano | last/14.1.8      | petsc/3.15-intel20 |
+| abinit/9.4.2  | desmond/2015.3      | last/9.4.2       | pexsi/1.2.0        |
+| abinit/abinit | dftbp/18.1          | lobster/3.0.0    | pgap/5742          |
+| abyss/2.0.2   | dftbp/19.1          | lumerical/2020R2 | phyluce/1.7.1      |
+| ..            | ..                  | ..               | ..    |
+
+Para cargar módulos: **_module load NOMBRE_**
+Para descargarlos: **_module unload NOMBRE_**
+Para ver los módulos cargadas: **_module list_**
+
+- **_Otros programas_**
+
+La manera más sencilla de instalar otros programas que necesiteis (o versiones diferentes de las instaladas) es escribir a [administrador.ccc@uam.es](administrador.ccc@uam.es) con vuestra petición. No esperéis que sean rápidos. Generalmente tardan una semana es procesar vuestra solicitud. 
+
+Otra forma sería que os los instaléis vosotros/as mismos/as si tenéis los conocimientos necesarios. Los programas se deben instalar en la carpeta _home_ o en _proyectos_. No siempre es posible la instalación por que requieren permisos de administrador que no tenemos como usuarios. 
+
+- **_Bases de datos_**: además de los programas ya instalados también disponemos de algunas bases de datos ya descargadas en **_/usr/local/BBDD/_**, aunque no se actualizan de manera automática, hay que solicitarlo escribiendo a [administrador.ccc@uam.es](administrador.ccc@uam.es) . 
+
+## Ejecución de trabajos
+
