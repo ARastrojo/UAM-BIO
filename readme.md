@@ -39,7 +39,7 @@ ssh usuario@login1.ccc.uam.es
 
 Inicialmente os asignarán una contraseña aleatoria que os harán llegar por correo interno. Para cambiarla, tendréis que ir físicamente al CCC (Facultad de Ciencias en el módulo 16). Además, cada cierto tiempo (6 meses) el sistema os pedirá cambiar la contraseña (esta vez desde vuestro ordenador).
 
-![login](https://github.com/ARastrojo/UAM-BIO/blob/5ea4ae22b52d75909d4ef789d1d2f905897de678/images/login.png)
+![login](https://github.com/ARastrojo/UAM-BIO/blob/848429bca23a95ba0995b17d1c8a40bdf6995e29/images/login.png)
 
 La primera vez que os logéis os preguntará si confiáis en el sitio. Debéis escribir "yes".  
 
