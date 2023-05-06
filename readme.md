@@ -44,7 +44,7 @@ Inicialmente os asignarán una contraseña aleatoria que os harán llegar por co
 La primera vez que os logéis os preguntará si confiáis en el sitio. Debéis escribir "yes".  
 
 > The authenticity of host 'login1.ccc.uam.es (150.244.55.101)' can't be established.
-ED25519 key fingerprint is SHA256:ZAIGxfphum8y2Df9t2fR5AohHqCVKWn5XyZmlhb4zKc.
+XXXXXXX key fingerprint is SHA256:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 This key is not known by any other names
 Are you sure you want to continue connecting (yes/no/[fingerprint])? **yes**
 
