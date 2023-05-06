@@ -106,7 +106,7 @@ Para ver los módulos disponibles ejecutar **"_module avail_"**:
 | abinit/9.4.2  | desmond/2015.3      | last/9.4.2       | pexsi/1.2.0        |
 | abinit/abinit | dftbp/18.1          | lobster/3.0.0    | pgap/5742          |
 | abyss/2.0.2   | dftbp/19.1          | lumerical/2020R2 | phyluce/1.7.1      |
-| ..            | ..                  | ..               | ..    |
+| ..            | ..                  | ..               | ..                 |
 
 Para cargar módulos: **_module load NOMBRE_**  
 Para descargarlos: **_module unload NOMBRE_**  
@@ -118,8 +118,108 @@ La manera más sencilla de instalar otros programas que necesiteis (o versiones 
 
 Otra forma sería que os los instaléis vosotros/as mismos/as si tenéis los conocimientos necesarios. Los programas se deben instalar en la carpeta _home_ o en _proyectos_. No siempre es posible la instalación por que requieren permisos de administrador que no tenemos como usuarios. 
 
-**_Bases de datos_**: además de los programas ya instalados también disponemos de algunas bases de datos ya descargadas en **_/usr/local/BBDD/_**, aunque no se actualizan de manera automática, hay que solicitarlo escribiendo a [administrador.ccc@uam.es](mailto:administrador.ccc@uam.es) . 
+**_Bases de datos_**: además de los programas ya instalados también disponemos de algunas bases de datos ya descargadas en **_/usr/local/BBDD/_**, aunque no se actualizan de manera automática, hay que solicitarlo escribiendo a [administrador.ccc@uam.es](mailto:administrador.ccc@uam.es). 
 
 ## Ejecución de trabajos
 
+Para ejecutar los trabajos debemos crear pequeños scripts con todas las instrucciones necesarias. Lo más frecuente es utilizar _bash_, aunque podemos usar otros lenguajes de programación (_tsch_, _python_, _perl_, etc.).  
 
+Aquí tenéis un ejemplo sencillo:
+```bash
+#!/bin/bash 
+
+resultdir=home/proyectos/microbioma/rastrojo/
+workdir=/temporal/rastrojo/output
+
+#--Check if workdir exits, if so delete it, and then create it 
+if [ -d $workdir ]
+	then
+	rm -fr $workdir
+fi
+mkdir -p $workdir
+cd $workdir # entering workdir
+
+#--Copy required data to temporal folder
+cp /home/proyectos/microbioma/rastrojo/data/file_R1.fastq $workdir
+cp /home/proyectos/microbioma/rastrojo/data/file_R2.fastq $workdir
+
+#--Running 
+module load spades/3.15.4
+spades.py --careful -t 24 -1 file_R1.fastq -2 file_R2.fastq -o assembly_output
+module unload spades/3.15.4
+
+#--Copy results 
+cp -r assembly_output $resultdir
+
+#--Remove working directory to release disk space 
+rm -rf $workdir
+```
+
+
+Ahora guardamos el script en un fichero (_script.sh_) y lo lanzamos al sistema de colas de la siguiente manera:
+
+```bash
+sbatch -A microbioma_serv -p bio -N 1 -n 24 -o log.txt -s script.sh
+```
+
+- **-A**: proyecto
+- **-p**: nombre de la cola (se puede poner varios a la vez: _bio,biobis,ccc_)
+- **-N**: número de nodos (máquinas) simultáneas que quieres usar. La mayoría de los programas que usamos en análisis de secuencias no puede usar varias máquinas simultáneas (algunos sí).
+- **-n**: número de _threads_ (hilos). Es más o menos el número de procesadores que queremos usar, pero como la mayoría de los procesadores modernos puede ejecutar 2 o más cosas simultáneamente (_hyperthreading_), eso nos permite utilizar cada procesador como si en realidad tuviéramos 2. Nuestras máquinas tiene 32 procesadores, pero cada procesador puede ejecutar 2 procesos simultáneos, así que en realidad podemos usar hasta 64 _threads_. 
+- **-o**: nombre de que queremos que tenga el _log_ del proceso. Es muy importante cuando las cosas salen mal, aquí podremos averiguar lo que ha pasado. Ponerle un nombre personalizada es opcional, por defecto, por cada trabajo que lancemos a las colas se generará un fichero tipo _slurm_XXXXX.log_ (XXXX es el mismo número que se asigna a cada trabajo en el sistema de colas). 
+- **-s**: script que queremos lanzar a las colas. 
+
+Una vez lanzado el trabajo, para comprobar el estado podemos ejecutar el siguiente comando:
+
+```bash
+squeue -u usuario
+```
+
+| JOBID   | PARTITION | NAME     | USER     | ST | TIME        | NODES | NODELIST(REASON) |
+|---------|-----------|----------|----------|----|-------------|-------|------------------|
+| 5084564 | biobis    | script.s | rastrojo | R  | 12:04:00 AM | 1     | cubas            |
+
+- **JOBID**: el identificar asignado al trabajo
+- **PARTITION**: la cola en la que está lanzado el trabajo
+- **NAME**: nombre del scritp
+- **USER**: nombre del usuario
+- **ST**: estado del trabajo. R: _running_ o PD: _priority_. En PD el sistema de colas está analizado la priodad del trabajo frente al resto. 
+- **NODES**: número de nodos (máquinas) usadas
+- **NODELIST(REASON)**: si el trabajo está corriendo pondrá el nodo/s en los que está corriendo el trabajo. Si aún no está corriendo pondrá la razón, generalmente _(Priority)_ o _(Resources)_ (no hay recursos disponibles)
+
+Para **cancelar** un trabajo que está corriendo usamos el siguiente comando:
+```bash
+scancel 5084564 
+# 5084564 -> número asignado a nuestro trabajo
+```
+
+Para ver el estado de las máquinas de un/as cola/s podemos usar:
+
+```bash
+sinfo -p bio,biobis
+```
+
+| PARTITION | AVAIL | TIMELIMIT | NODES | STATE | NODELIST    |
+|-----------|-------|-----------|-------|-------|-------------|
+| bio       | up    | infinite  | 1     | down* | coslada     |
+| bio       | up    | infinite  | 1     | alloc | colmenarejo |
+| biobis    | up    | infinite  | 2     | idle  | cotos,cubas |
+
+En **STATE** podemos ver _idle_ (inactivas), _alloc_ (asignadas, en uso), _drained_ (agotada) o _down*_ (caída). Cuando alguna máquina esté caída es conveniente que nos lo digáis para que avisemos al personal del CCC para que las reinicien. 
+
+<!--
+Puede ver las especificaciones principales de una cola en concreto con el siguiente comando:
+```bash
+sinfo -Nel -p bio,biobis
+```
+
+| NODELIST    | NODES | PARTITION | STATE     | CPUS | S:C:T | MEMORY | TMP_DISK | WEIGHT | AVAIL_FE | REASON        |
+|-------------|-------|-----------|-----------|------|-------|--------|----------|--------|----------|---------------|
+| colmenarejo | 1     | bio       | allocated | 64   | 4:8:2 | 515800 | 0        | 1      | (null)   | none          |
+| coslada     | 1     | bio       | down*     | 64   | 4:8:2 | 515800 | 0        | 1      | (null)   | Not reponding |
+| cotos       | 1     | biobis    | idle      | 64   | 4:8:2 | 515800 | 0        | 1      | (null)   | none          |
+| cubas       | 1     | biobis    | idle      | 64   | 4:8:2 | 451292 | 0        | 1      | (null)   | none          |
+
+-->
+
+> En la carpeta _scripts_ de este repositorio iremos colgando más ejemplos de scripts que esperamos sean útililes. 
