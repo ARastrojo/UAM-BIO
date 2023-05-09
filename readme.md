@@ -14,7 +14,7 @@ Para poder acceder al uso de estas máquinas (que hemos llamado cluster UAM-BIO)
 
 > Para acceder a las máquinas del cluster UAM-BIO debéis indicar en el campo 4 del formulario _"uso de las máquinas de Daniel Aguirre"_.  De este modo, además de las colas propias del CCC, tendréis acceso a nuestras colas (bio y biobis).
 
-2. **Daros de alta en la lista cluster-uambio [aquí](https://listas-correo.uam.es/sympa/subscribe/cluster-uambio-l?previous_action=info). <!--**NO FUNCIONA LA LISTA** Crearla de nuevo-->**
+2. **Daros de alta en la lista cluster-uambio [aquí](https://listas-correo.uam.es/sympa/subscribe/cluster-uambio-l?previous_action=info).**  
 
 Para cualquier duda podéis hacer uso de la lista de correo ([cluster-uambio-l@uam.es](mailto:cluster-uambio-l@uam.es)) o escribiendo al responsable técnico del cluster UAM-BIO ([alberto.rastrojo@uam.es](mailto:alberto.rastrojo@uam.es)).
 
