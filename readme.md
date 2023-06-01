@@ -3,7 +3,7 @@
 Desde el grupo [_"Microbial and Environmental Genomics"_](https://www.me-genomics.com/) ponemos a disposición de todo el departamento de Biología el uso de las 4 máquinas (64 cores / 512 Gb de RAM) que tenemos alojadas en el _Centro de Computación Científica_ ([CCC](https://www.ccc.uam.es/index.html)) de la UAM. 
 
 Los **<u>únicos requisitos</u>** para su uso son:
-1.  Hacer un uso legal y razonable.  
+1.  Hacer un uso legal y razonable (en caso contrario se podrá interrumpir el acceso a las colas previo aviso de incurrir en abuso).  
 2. Incluir en agrademientos de cualquier publicación (paper, poster, TFG, TFM, Tesis, etc.) que se ha hecho uso del clúster de cómputo del departamento de Biología (con el fin de monitorizar el uso). 
 
 Para poder acceder al uso de estas máquinas (que hemos llamado cluster UAM-BIO) tendréis que:
@@ -12,9 +12,9 @@ Para poder acceder al uso de estas máquinas (que hemos llamado cluster UAM-BIO)
 
 > Esencialmente al daros de alta en el CCC deberéis presentar un pequeño proyecto que os dará acceso al cluster de cómputo del CCC (colas ccc y cccmd, aunque están bastante saturadas). En el formulario se os solicitará que os asignéis un nombre de usuario y se os permitirá añadir al proyectos tanto usuarios como necesitéis. 
 
-> Para acceder a las máquinas del cluster UAM-BIO debéis indicar en el campo 4 del formulario _"uso de las máquinas de Daniel Aguirre"_.  De este modo, además de las colas propias del CCC, tendréis acceso a nuestras colas (bio y biobis).
+2. Escribir a [alberto.rastrojo@uam.es](mailto:alberto.rastrojo@uam.es) o a [daniel.aguirre@uam.es](mailto:daniel.aguirre@uam.es) para que os demos acceso a las colas (bio y biobis)
 
-2. **Daros de alta en la lista cluster-uambio [aquí](https://listas-correo.uam.es/sympa/subscribe/cluster-uambio-l?previous_action=info).**  Tanto el IP del proyecto como los todos los usuarios adicionales. 
+3. **Daros de alta en la lista cluster-uambio [aquí](https://listas-correo.uam.es/sympa/subscribe/cluster-uambio-l?previous_action=info).**  Tanto el IP del proyecto como los todos los usuarios adicionales. 
 
 Para cualquier duda podéis hacer uso de la lista de correo ([cluster-uambio-l@uam.es](mailto:cluster-uambio-l@uam.es)) o escribiendo al responsable técnico del cluster UAM-BIO ([alberto.rastrojo@uam.es](mailto:alberto.rastrojo@uam.es)).
 
@@ -52,7 +52,7 @@ Are you sure you want to continue connecting (yes/no/[fingerprint])? **yes**
 
 ## Espacios en disco
 
-En la solicitud de proyecto al CCC debéis indicar vuestras necesidades de espacio y cómputo. Por defecto, se os concederán 500 Gb de espacio en disco de almacenamiento en el directorio del _proyecto_ y unos 100 Mb en el directorio _home_ de cada usuario de manera gratuíta. Si necesitáis más espacio de almacenamiento se puede obtener pagando la cuota correspondiente (consultar precios [aquí](https://www.ccc.uam.es/es/about/precios.pdf)).
+En la solicitud de proyecto al CCC debéis indicar vuestras necesidades de espacio y cómputo. Por defecto, se os concederán X Gb de espacio en disco de almacenamiento en el directorio del _proyecto_ y unos 100 Mb en el directorio _home_ de cada usuario de manera gratuíta. Si necesitáis más espacio de almacenamiento se puede obtener pagando la cuota correspondiente (consultar precios [aquí](https://www.ccc.uam.es/es/about/precios.pdf)).
 
 Directorios y usos:
 
