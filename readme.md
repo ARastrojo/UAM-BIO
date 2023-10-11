@@ -154,7 +154,7 @@ cp -r assembly_output $resultdir
 #--Remove working directory to release disk space 
 rm -rf $workdir
 ```
-<!--
+<!-
 ***
 **IMPORTANTE**
 
@@ -175,7 +175,7 @@ _Por favor, utilicen este directorio para almacenar los datos temporales de las 
 Por lo tanto, se recomienda hacer uso de la carpeta que se crea de manera automática en lugar de una personal, que además se borrará automáticamente al terminar. 
 
 ***
--->
+->
 
 Ahora guardamos el script en un fichero (_script.sh_) y lo lanzamos al sistema de colas de la siguiente manera:
 
