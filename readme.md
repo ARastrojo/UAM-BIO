@@ -41,7 +41,7 @@ Inicialmente os asignarán una contraseña aleatoria que os harán llegar por co
 
 ![login](https://github.com/ARastrojo/UAM-BIO/blob/848429bca23a95ba0995b17d1c8a40bdf6995e29/images/login.png)
 
-La primera vez que os logéis os preguntará si confiáis en el sitio. Debéis escribir "yes".  
+La primera vez que os logeis os preguntará si confiáis en el sitio. Debéis escribir "yes".  
 
 > The authenticity of host 'login1.ccc.uam.es (150.244.55.101)' can't be established.
 XXXXXXX key fingerprint is SHA256:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -154,6 +154,27 @@ cp -r assembly_output $resultdir
 #--Remove working directory to release disk space 
 rm -rf $workdir
 ```
+
+***
+**IMPORTANTE**
+
+Tradicionalmente para copiar los datos a la carpeta $USER/temporal/ creábamos previamente una carpeta, en el ejemplo de arriba "output", cuyo nombre elegía el usuario. Esto se puede seguir haciendo, siempre que luego se borre al terminar el trabajo. Sin embargo, podría darse el caso de que varios trabajos user la misma carpeta temporal y se podrían generar conflictos en la ejecución de vuestros trabajos. Por ello, desde el CCC nos informaron de lo siguiente:
+
+_Estimadas y estimados usuarios,_  
+
+_Cada vez que envían un trabajo al sistema de colas se crea de forma automática un directorio llamado:_
+
+_/temporal/$SLURM_JOB_USER/$SLURM_JOB_ID_  
+
+_donde recuerden que /temporal es un directorio local existente en la gran mayoría de las máquinas de cálculo._  
+
+_Al terminar el cálculo se borra de forma automática._  
+
+_Por favor, utilicen este directorio para almacenar los datos temporales de las ejecuciones que utilicen un único nodo, dado que así sus cálculos se ejecutarán de forma más rápida y además se evitará que este tipo de almacenamiento se llene y provoque fallos en ejecuciones posteriores._  
+
+Por lo tanto, se recomienda hacer uso de la carpeta que se crea de manera automática en lugar de una personal, que además se borrará automáticamente al terminar. 
+
+***
 
 
 Ahora guardamos el script en un fichero (_script.sh_) y lo lanzamos al sistema de colas de la siguiente manera:
