@@ -158,7 +158,7 @@ rm -rf $workdir
 ***
 **IMPORTANTE**
 
-Tradicionalmente para copiar los datos a la carpeta $USER/temporal/ creábamos previamente una carpeta, en el ejemplo de arriba "output", cuyo nombre elegía el usuario. Esto se puede seguir haciendo, siempre que luego se borre al terminar el trabajo. Sin embargo, podría darse el caso de que varios trabajos user la misma carpeta temporal y se podrían generar conflictos en la ejecución de vuestros trabajos. Por ello, desde el CCC nos informaron de lo siguiente:
+Tradicionalmente para copiar los datos a la carpeta /temporal/ creábamos previamente una carpeta, en el ejemplo de arriba "output", cuyo nombre elegía el usuario. Esto se puede seguir haciendo, siempre que luego se borre al terminar el trabajo. Sin embargo, podría darse el caso de que varios trabajos user la misma carpeta temporal y se podrían generar conflictos en la ejecución de vuestros trabajos. Por ello, desde el CCC nos informaron de lo siguiente:
 
 _Estimadas y estimados usuarios,_  
 
