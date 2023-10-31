@@ -114,11 +114,11 @@ Para ver los módulos cargadas: **_module list_**
 
 **_Instalación de nuevos programas_**
 
-La manera más sencilla de instalar otros programas que necesiteis (o versiones diferentes de las instaladas) es escribir a [administrador.ccc@uam.es](mailto:administrador.ccc@uam.es) con vuestra petición. No esperéis que sean rápidos. Generalmente tardan una semana es procesar vuestra solicitud. 
+La manera más sencilla de instalar otros programas que necesiteis (o versiones diferentes de las instaladas) es escribir a [administracion.ccc@uam.es](mailto:administracion.ccc@uam.es) con vuestra petición. No esperéis que sean rápidos. Generalmente tardan una semana es procesar vuestra solicitud. 
 
 Otra forma sería que os los instaléis vosotros/as mismos/as si tenéis los conocimientos necesarios. Los programas se deben instalar en la carpeta _home_ o en _proyectos_. No siempre es posible la instalación por que requieren permisos de administrador que no tenemos como usuarios. 
 
-**_Bases de datos_**: además de los programas ya instalados también disponemos de algunas bases de datos ya descargadas en **_/usr/local/BBDD/_**, aunque no se actualizan de manera automática, hay que solicitarlo escribiendo a [administrador.ccc@uam.es](mailto:administrador.ccc@uam.es). 
+**_Bases de datos_**: además de los programas ya instalados también disponemos de algunas bases de datos ya descargadas en **_/usr/local/BBDD/_**, aunque no se actualizan de manera automática, hay que solicitarlo escribiendo a [administracion.ccc@uam.es](mailto:administracion.ccc@uam.es). 
 
 ## Ejecución de trabajos
 
