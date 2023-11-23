@@ -154,7 +154,7 @@ cp -r assembly_output $resultdir
 #--Remove working directory to release disk space 
 rm -rf $workdir
 ```
-<!--
+
 ***
 **IMPORTANTE**
 
@@ -175,7 +175,6 @@ _Por favor, utilicen este directorio para almacenar los datos temporales de las 
 Por lo tanto, se recomienda hacer uso de la carpeta que se crea de manera automática en lugar de una personal, que además se borrará automáticamente al terminar. 
 
 ***
--->
 
 Ahora guardamos el script en un fichero (_script.sh_) y lo lanzamos al sistema de colas de la siguiente manera:
 
@@ -204,7 +203,7 @@ squeue -u usuario
 - **PARTITION**: la cola en la que está lanzado el trabajo
 - **NAME**: nombre del scritp
 - **USER**: nombre del usuario
-- **ST**: estado del trabajo. R: _running_ o PD: _priority_. En PD el sistema de colas está analizado la priodad del trabajo frente al resto. 
+- **ST**: estado del trabajo. R: _running_ o PD: _pending_. En PD el sistema de colas está analizado la priodad del trabajo y esperando a que haya los recursos disponibles que hemos solicitado. 
 - **NODES**: número de nodos (máquinas) usadas
 - **NODELIST(REASON)**: si el trabajo está corriendo pondrá el nodo/s en los que está corriendo el trabajo. Si aún no está corriendo pondrá la razón, generalmente _(Priority)_ o _(Resources)_ (no hay recursos disponibles)
 
