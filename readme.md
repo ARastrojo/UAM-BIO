@@ -1,6 +1,6 @@
 # Acceso al cluster UAM-BIO
 
-Desde el grupo [_"Microbial and Environmental Genomics"_](https://www.me-genomics.com/) ponemos a disposición de todo el departamento de Biología el uso de las 2 máquinas (64 cores / 512 Gb de RAM) que tenemos alojadas en el _Centro de Computación Científica_ ([CCC](https://www.ccc.uam.es/index.html)) de la UAM. 
+Desde el grupo [_"Microbial and Environmental Genomics"_](https://www.me-genomics.com/) ponemos a disposición de todo el departamento de Biología el uso de las 2 máquinas ([HP proliant DL580 G7](https://support.hpe.com/hpesc/public/docDisplay?docId=emr_na-c02279623), 32 cores / 64 threats / 512 Gb de RAM / 1 Tb disca) que tenemos alojadas en el _Centro de Computación Científica_ ([CCC](https://www.ccc.uam.es/index.html)) de la UAM. 
 
 Los **<u>únicos requisitos</u>** para su uso son:
 1.  Hacer un uso legal y razonable (en caso contrario se podrá interrumpir el acceso a las colas previo aviso de incurrir en abuso).  
